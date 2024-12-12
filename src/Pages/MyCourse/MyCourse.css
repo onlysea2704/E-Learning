@@ -1,0 +1,29 @@
+/* Trang khóa học */
+.courses-page {
+    margin-top: 80px;
+    margin: 80px 100px;
+    padding-bottom: 30px;
+    /* background-color: #f5f5f5; Màu nền nhẹ nhàng */
+    background-color: #f0f8ff;
+  }
+  
+  /* Tiêu đề trang */
+  .page-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #0073e6; /* Màu xanh nổi bật */
+    color: black;
+    margin-bottom: 20px;
+  }
+  
+  /* Container chứa các thẻ khóa học */
+  .courses-container {
+    display: grid;
+    padding: 0px 50px;
+    grid-template-columns: repeat(4, 1fr); /* 4 khóa học mỗi hàng */
+    gap: 40px; /* Khoảng cách giữa các thẻ */
+    justify-items: center; /* Căn giữa các thẻ */
+    margin: 0 auto;
+  }
+  
