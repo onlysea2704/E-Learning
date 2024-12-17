@@ -22,7 +22,7 @@ const SpeakingQuestion = ({ question, onFileUpload }) => {
           {fileName ? "Replace File" : "Upload your MP3 answer"}
         </label>
         <input
-          id={`file-upload-${question}`}
+          name={`${question}`}
           type="file"
           accept="audio/mp3"
           className="file-input-hidden"

@@ -4,7 +4,8 @@
     border-radius: 10px;
     padding: 20px;
     background-color: #f9f9f9;
-    margin-top: 20px;
+    background-color: #ffffff;
+    margin-bottom: 40px;
   }
   
   .comments-header {
@@ -23,6 +24,7 @@
     border: 1px solid #ddd;
     border-radius: 10px;
     background-color: #fff;
+    background-color: #f9f9f9;
     transition: box-shadow 0.3s, transform 0.3s;
   }
   
@@ -73,7 +75,7 @@
   }
   
   .add-comment-textarea {
-    width: 97.7%;
+    width: 98%;
     height: 80px;
     padding: 10px;
     border: 1px solid #ddd;

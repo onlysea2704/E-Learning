@@ -1,103 +1,62 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Quiz.css";
 import ReadingQuestion from "../Question/ReadingQuestion/ReadingQuestion";
 import ListeningQuestion from "../Question/ListeningQuestion/ListeningQuestion";
 import WritingQuestion from "../Question/WritingQuestion/WritingQuestion";
 import SpeakingQuestion from "../Question/SpeakingQuestion/SpeakingQuestion";
+import { StudentContext } from "../../Context/Context";
+import { useParams } from "react-router-dom";
 
 const Quiz = () => {
+  const { id_lesson } = useParams();
+  const { quizzes, questions } = useContext(StudentContext);
 
-  const readingQuestions = [
-    {
-      question: "What is the main idea of the passage?",
-      options: [
-        "The importance of reading",
-        "The benefits of exercise",
-        "How to cook pasta",
-        "Tips for saving money",
-      ],
-    },
-    {
-      question: "Which of the following is a synonym for 'happy'?",
-      options: ["Sad", "Joyful", "Angry", "Tired"],
-    }
-  ];
-
-  const listeningQuestions = [
-    {
-      question: "Listen to the audio and choose the main idea:",
-      audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-      options: [
-        "Option A: Relaxing music",
-        "Option B: Busy street sounds",
-        "Option C: Conversation between two people",
-        "Option D: Background noise in a cafe",
-      ],
-    },
-    {
-      question: "What type of audio is this?",
-      audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-      options: [
-        "Option A: A podcast",
-        "Option B: A music track",
-        "Option C: A lecture",
-        "Option D: A news broadcast",
-      ],
-    },
-    {
-      question: "Identify the mood of the audio:",
-      audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-      options: [
-        "Option A: Joyful",
-        "Option B: Sad",
-        "Option C: Tense",
-        "Option D: Relaxing",
-      ],
-    },
-  ];
-
-  const writingQuestions = [
-    {
-      question: "Describe the scene shown in the image below:",
-      imageSrc: "https://via.placeholder.com/600x300", // Replace with an actual image URL
-    },
-    {
-      question: "Write about your favorite childhood memory:",
-      imageSrc: "", // No image for this question
-    },
-  ];
-
-  const speakingQuestions = [
-    "Describe your favorite holiday destination.",
-    "Talk about an important event in your life.",
-    "Explain the advantages of learning a second language.",
-  ];
-
-  
-  // This Hook is for reading anh listening question
-  const [selectedAnswers, setSelectedAnswers] = useState(
-    // Array(readingQuestions.length).fill(null)
-    Array(listeningQuestions.length).fill(null)
+  // Tìm quiz hiện tại và các câu hỏi liên quan
+  const quiz = quizzes.find((quiz) => quiz.id_lesson === Number(id_lesson));
+  const questionForQuiz = questions.filter(
+    (question) => question.id_quiz === quiz?.id_quiz
   );
 
-  // This Hook is for writing question
-  const [answers, setAnswers] = useState(Array(writingQuestions.length).fill(""));
+  // Phân loại câu hỏi dựa trên type_question
+  const readingQuestions = questionForQuiz.filter(
+    (q) => q.type_question === "reading"
+  );
+  const listeningQuestions = questionForQuiz.filter(
+    (q) => q.type_question === "listening"
+  );
+  const writingQuestions = questionForQuiz.filter(
+    (q) => q.type_question === "writing"
+  );
+  const speakingQuestions = questionForQuiz.filter(
+    (q) => q.type_question === "speaking"
+  );
 
-  // This Hook is for Speaking question
-  const [uploadedFiles, setUploadedFiles] = useState(Array(speakingQuestions.length).fill(null));
+  // Hook để quản lý câu trả lời cho từng loại câu hỏi
+  const [selectedAnswers, setSelectedAnswers] = useState(
+    Array(listeningQuestions.length).fill(null)
+  );
+  const [answers, setAnswers] = useState(
+    Array(writingQuestions.length).fill("")
+  );
+  const [uploadedFiles, setUploadedFiles] = useState(
+    Array(speakingQuestions.length).fill(null)
+  );
 
+  // Xử lý chọn đáp án cho Reading và Listening
   const handleOptionChange = (questionIndex, selectedOption) => {
     const updatedAnswers = [...selectedAnswers];
     updatedAnswers[questionIndex] = selectedOption;
     setSelectedAnswers(updatedAnswers);
   };
 
+  // Xử lý câu trả lời cho Writing
   const handleAnswerChange = (index, newAnswer) => {
     const updatedAnswers = [...answers];
     updatedAnswers[index] = newAnswer;
     setAnswers(updatedAnswers);
   };
 
+  // Xử lý upload file cho Speaking
   const handleFileUpload = (index, file) => {
     const updatedFiles = [...uploadedFiles];
     updatedFiles[index] = file;
@@ -106,59 +65,68 @@ const Quiz = () => {
 
   const handleSubmit = () => {
     console.log("Selected Answers: ", selectedAnswers);
+    console.log("Written Answers: ", answers);
+    console.log("Uploaded Files: ", uploadedFiles);
     alert("Quiz submitted! Check console for answers.");
   };
-
-  const score = null;
 
   return (
     <div className="quiz-page-container">
       <div className="quiz-header">
-        <h1 className="quiz-title">Reading Quiz</h1>
-        <div className="quiz-score">{score ?? '-- '}/10</div>
+        <h1 className="quiz-title">{quiz.name_quiz}</h1>
       </div>
-      {/* {readingQuestions.map((item, index) => (
+
+      {/* Hiển thị Reading Questions */}
+      {readingQuestions.map((question, index) => (
         <div key={index} className="quiz-question-block">
           <ReadingQuestion
-            question={item.question}
-            options={item.options}
-            selectedOption={selectedAnswers[index]}
-            onOptionChange={(option) => handleOptionChange(index, option)}
-            questionId={index} 
-          />
-        </div>
-      ))} */}
-      {/* {listeningQuestions.map((question, index) => (
-        <div key={index} className="quiz-question-block">
-          <ListeningQuestion
+            questionId={question.id_question}
             question={question.question}
-            audioSrc={question.audioSrc}
             options={question.options}
             selectedOption={selectedAnswers[index]}
-            onOptionChange={(selectedOption) => handleOptionChange(index, selectedOption)}
-            questionId={index}
+            onOptionChange={(option) => handleOptionChange(index, option)}
           />
         </div>
-      ))} */}
-      {/* {writingQuestions.map((q, index) => (
+      ))}
+
+      {/* Hiển thị Listening Questions */}
+      {listeningQuestions.map((question, index) => (
+        <div key={index} className="quiz-question-block">
+          <ListeningQuestion
+            questionId={question.id_question}
+            question={question.question}
+            audioSrc={question.link_mp3}
+            options={question.options}
+            selectedOption={selectedAnswers[index]}
+            onOptionChange={(option) => handleOptionChange(index, option)}
+          />
+        </div>
+      ))}
+
+      {/* Hiển thị Writing Questions */}
+      {writingQuestions.map((question, index) => (
         <div key={index} className="quiz-question-block">
           <WritingQuestion
-            question={q.question}
-            imageSrc={q.imageSrc}
+            questionId={question.id_question}
+            question={question.question}
+            imageSrc={question.link_image}
             answer={answers[index]}
             onAnswerChange={(newAnswer) => handleAnswerChange(index, newAnswer)}
           />
         </div>
-      ))} */}
-      {speakingQuestions.map((q, index) => (
+      ))}
+
+      {/* Hiển thị Speaking Questions */}
+      {speakingQuestions.map((question, index) => (
         <div key={index} className="quiz-question-block">
           <SpeakingQuestion
-            question={q}
+            questionId={question.id_question}
+            question={question.question}
             onFileUpload={(file) => handleFileUpload(index, file)}
-            questionId={index}
           />
         </div>
       ))}
+
       <button className="quiz-submit-button" onClick={handleSubmit}>
         Submit Quiz
       </button>

@@ -38,7 +38,7 @@ const Navbar = () => {
             <Link to="/explore-course">Explore Course</Link>
           </li>
           <li>
-            <Link to="/placement-test">Kiểm tra đầu vào</Link>
+            <Link to="/coursedetail/0/lesson/15">Kiểm tra đầu vào</Link>
           </li>
           <li>
             <Link to="/login">Đăng nhập</Link>
@@ -49,9 +49,9 @@ const Navbar = () => {
           {showDropdown && (
             <div className="dropdown-menu" ref={dropdownRef}>
               <ul>
-                <li>Thay mật khẩu</li>
-                <li>Thay đổi thông tin cá nhân</li>
-                <li>Đăng xuất</li>
+                <li><Link to='/change-password'>Thay mật khẩu</Link></li>
+                <li><Link to='/profile-edit'>Thay đổi thông tin cá nhân</Link></li>
+                <li><Link to='/login'>Đăng xuất</Link></li>
               </ul>
             </div>
           )}

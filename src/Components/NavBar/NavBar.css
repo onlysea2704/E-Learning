@@ -119,6 +119,17 @@
   /* Tăng độ rộng của menu */
 }
 
+/* Xóa style mặc định của thẻ a */
+.dropdown-menu a {
+  text-decoration: none;
+  /* Bỏ gạch chân */
+  color: inherit;
+  /* Kế thừa màu từ li */
+  display: block;
+  /* Giúp Link bao phủ toàn bộ nội dung li */
+}
+
+/* Style cho ul và li giữ nguyên */
 .dropdown-menu ul {
   list-style-type: none;
   margin: 0;
@@ -130,6 +141,12 @@
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hiệu ứng hover giữ nguyên */
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+  color: #007bff;
 }
 
 .dropdown-menu li:hover {

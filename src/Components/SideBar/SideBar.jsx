@@ -1,46 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./SideBar.css";
+import { Link, useParams } from "react-router-dom";
+import { StudentContext } from "../../Context/Context";
 
 const Sidebar = () => {
-  const courses = [
-    { name: "Khóa học ReactJS", type: "video" },
-    { name: "Khóa học Java", type: "test" },
-    { name: "Khóa học Python", type: "video" },
-    { name: "Khóa học SQL", type: "test" },
-    { name: "Khóa học UI/UX Design", type: "video" },
-    { name: "Khóa học NodeJS", type: "video" },
-    { name: "Khóa học Docker", type: "test" },
-    { name: "Khóa học AWS Cloud", type: "video" },
-    { name: "Khóa học Machine Learning", type: "video" },
-    { name: "Khóa học Data Science", type: "test" },
-    { name: "Khóa học C++", type: "video" },
-    { name: "Khóa học Ruby on Rails", type: "test" },
-    { name: "Khóa học HTML & CSS", type: "video" },
-    { name: "Khóa học JavaScript", type: "test" },
-    { name: "Khóa học TypeScript", type: "video" },
-    { name: "Khóa học Next.js", type: "test" },
-    { name: "Khóa học Flutter", type: "video" },
-    { name: "Khóa học PHP", type: "test" },
-    { name: "Khóa học MongoDB", type: "video" },
-    { name: "Khóa học DevOps", type: "test" },
-  ];
+  const { id_course, id_lesson } = useParams();
+  const { lessons } = useContext(StudentContext);
+  const lesson_course = lessons.filter(lesson => lesson.id_course === Number(id_course));
 
   return (
     <div className="sidebar">
-      <h2>Danh Sách Khóa Học</h2>
-      {courses.map((course, index) => (
-        <div key={index} className="course-item">
-          <span className="icon">
-            {course.type === "video" ? (
-              <i className="fas fa-video"></i> // Icon video
-            ) : (
-              <i className="fas fa-pen"></i> // Icon test
-            )}
-          </span>
-          {course.name}
-          <span className="arrow">
-            <i className="fas fa-angle-right"></i> 
-          </span>
+      <h2>Danh Sách Bài Học</h2>
+      {lesson_course.map((lesson, index) => (
+        <div
+          key={index}
+          className={`course-item ${lesson.id_lesson === Number(id_lesson) ? "active-lesson" : ""}`}
+        >
+          <Link to={`/coursedetail/${id_course}/lesson/${lesson.id_lesson}`} className="link-wrapper">
+            <span className="icon">
+              {lesson.type_lesson === "video lesson" ? (
+                <i className="fas fa-video"></i> // Icon video
+              ) : (
+                <i className="fas fa-pen"></i> // Icon test
+              )}
+            </span>
+            {lesson.name_lesson}
+            <span className="arrow">
+              <i className="fas fa-angle-right"></i>
+            </span>
+          </Link>
         </div>
       ))}
     </div>

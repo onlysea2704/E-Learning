@@ -1,9 +1,11 @@
 import React from 'react';
 import './LoginForm.css';
 import { Link } from "react-router-dom";
+import Footer from "../../Components/Footer/Footer"
 
 const LoginForm = () => {
   return (
+    <>
     <div className="login-container">
       <div className="login-form">
         <h2>Đăng nhập</h2>
@@ -27,6 +29,9 @@ const LoginForm = () => {
         </p>
       </div>
     </div>
+    <Footer/>
+    </>
+    
   );
 };
 

@@ -5,12 +5,14 @@ import LoginForm from "./Pages/LoginForm/LoginForm";
 import RegisterForm from "./Pages/RegisterForm/RegisterForm";
 import ExploreCourse from "./Pages/ExploreCourse/ExploreCourse";
 import MyCourse from "./Pages/MyCourse/MyCourse";
+import CategoryCourse from "./Pages/CategoryCourse/CategoryCourse";
 import CourseDetail from "./Pages/CourseDetail/CourseDetail";
 import Home from "./Pages/Home/Home";
 import Lesson from "./Pages/Lesson/Lesson";
-
-// Placeholder pages
-const PlacementTest = () => <h2>Kiểm tra đầu vào</h2>;
+import ChangePassword from "./Pages/ChangePassword/ChangePassword";
+import ProfileEdit from "./Pages/ProfileEdit/ProfileEdit";
+import Checkout from "./Pages/Checkout/Checkout";
+import Progress from "./Pages/Progress/Progress";
 
 function App() {
   return (
@@ -19,13 +21,18 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/lesson" element={<Lesson />} />
-        <Route path="/my-course" element={<MyCourse/>} />
-        <Route path="/explore-course" element={<ExploreCourse />} />
-        <Route path="/placement-test" element={<PlacementTest />} />
+        <Route path="/my-course" element={<CategoryCourse isPurchase={true}/>} />
+        <Route path="/explore-course" element={<CategoryCourse isPurchase={false}/>} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
-        <Route path="/coursedetail" element={<CourseDetail />} />
-
+        <Route path="/coursedetail">
+          <Route path=":id_course" element={<CourseDetail />} />
+          <Route path=":id_course/lesson/:id_lesson" element={<Lesson />} />
+        </Route>
+        <Route path="/change-password" element={<ChangePassword />} />
+        <Route path="/profile-edit" element={<ProfileEdit />} />
+        <Route path="/checkout/:id_course" element={<Checkout />} />
+        <Route path="/progress/:id_course" element={<Progress />} />
       </Routes>
     </Router>
   );

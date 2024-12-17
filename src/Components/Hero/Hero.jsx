@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import BG1 from '../../Assets/Image/BG3.png'
+import { Link } from 'react-router-dom';
 
 const HeroText = ({ text }) => {
     return (
@@ -39,14 +40,14 @@ const Hero = () => {
                         với phương pháp học tập tiên tiến
                     </p>
                     <div className="hero-cta-group">
-                    <button className="cta-btn primary-btn">
+                        <Link to="/coursedetail/0/lesson/15" className="cta-btn primary-btn">
                             <i className="fas fa-play btn-icon"></i>
                             Kiểm tra đầu vào
-                        </button>
-                        <button className="cta-btn secondary-btn">
+                        </Link>
+                        <Link to="/explore-course" className="cta-btn secondary-btn">
                             <i className="fas fa-book-open btn-icon"></i>
                             Khám Phá Khóa Học
-                        </button>
+                        </Link>
                     </div>
                     <div className="hero-stats">
                         <div className="stat-item">

@@ -1,7 +1,7 @@
 import React from "react";
 import "./WritingQuestion.css";
 
-const WritingQuestion = ({ question, imageSrc, answer, onAnswerChange }) => {
+const WritingQuestion = ({ question, imageSrc, answer, onAnswerChange, questionId }) => {
   return (
     <div className="writing-question-container">
       <p className="writing-question">{question}</p>
@@ -11,6 +11,7 @@ const WritingQuestion = ({ question, imageSrc, answer, onAnswerChange }) => {
         </div>
       )}
       <textarea
+        name={`${questionId}`}
         className="writing-textarea"
         placeholder="Write your answer here..."
         value={answer}

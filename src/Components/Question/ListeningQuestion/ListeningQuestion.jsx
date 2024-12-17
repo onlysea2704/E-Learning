@@ -14,7 +14,7 @@ const ListeningQuestion = ({ question, audioSrc, options, onOptionChange, select
           <label key={index} className="listening-option">
             <input
               type="radio"
-              name={`listening-option-${questionId}`}
+              name={`${questionId}`}
               value={index}
               checked={selectedOption === index}
               onChange={() => onOptionChange(index)}

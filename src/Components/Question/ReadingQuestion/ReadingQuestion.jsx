@@ -10,7 +10,7 @@ const ReadingQuestion = ({ question, options, selectedOption, onOptionChange, qu
           <label key={index} className="reading-option">
             <input
               type="radio"
-              name={`reading-option-${questionId}`} /* Mỗi câu hỏi có một name khác nhau */
+              name={`${questionId}`} /* Mỗi câu hỏi có một name khác nhau */
               value={index}
               checked={selectedOption === index}
               onChange={() => onOptionChange(index)}
