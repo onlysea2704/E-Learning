@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/NavBar/NavBar";
 import LoginForm from "./Pages/LoginForm/LoginForm";
 import RegisterForm from "./Pages/RegisterForm/RegisterForm";
-import ExploreCourse from "./Pages/ExploreCourse/ExploreCourse";
-import MyCourse from "./Pages/MyCourse/MyCourse";
 import CategoryCourse from "./Pages/CategoryCourse/CategoryCourse";
 import CourseDetail from "./Pages/CourseDetail/CourseDetail";
 import Home from "./Pages/Home/Home";

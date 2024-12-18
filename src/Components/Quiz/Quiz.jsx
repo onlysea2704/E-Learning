@@ -12,121 +12,71 @@ const Quiz = () => {
   const { quizzes, questions } = useContext(StudentContext);
 
   // Tìm quiz hiện tại và các câu hỏi liên quan
-  const quiz = quizzes.find((quiz) => quiz.id_lesson === Number(id_lesson));
-  const questionForQuiz = questions.filter(
-    (question) => question.id_quiz === quiz?.id_quiz
+  const currentQuiz = quizzes.find(
+    (quiz) => quiz.id_lesson === Number(id_lesson)
   );
 
-  // Phân loại câu hỏi dựa trên type_question
-  const readingQuestions = questionForQuiz.filter(
-    (q) => q.type_question === "reading"
-  );
-  const listeningQuestions = questionForQuiz.filter(
-    (q) => q.type_question === "listening"
-  );
-  const writingQuestions = questionForQuiz.filter(
-    (q) => q.type_question === "writing"
-  );
-  const speakingQuestions = questionForQuiz.filter(
-    (q) => q.type_question === "speaking"
+  const relatedQuestions = questions.filter(
+    (question) => question.id_quiz === currentQuiz?.id_quiz
   );
 
-  // Hook để quản lý câu trả lời cho từng loại câu hỏi
-  const [selectedAnswers, setSelectedAnswers] = useState(
-    Array(listeningQuestions.length).fill(null)
-  );
+  // State quản lý câu trả lời
   const [answers, setAnswers] = useState(
-    Array(writingQuestions.length).fill("")
-  );
-  const [uploadedFiles, setUploadedFiles] = useState(
-    Array(speakingQuestions.length).fill(null)
+    Array(relatedQuestions.length).fill(null)
   );
 
-  // Xử lý chọn đáp án cho Reading và Listening
-  const handleOptionChange = (questionIndex, selectedOption) => {
-    const updatedAnswers = [...selectedAnswers];
-    updatedAnswers[questionIndex] = selectedOption;
-    setSelectedAnswers(updatedAnswers);
-  };
-
-  // Xử lý câu trả lời cho Writing
-  const handleAnswerChange = (index, newAnswer) => {
+  const handleAnswerChange = (questionIndex, answerValue) => {
     const updatedAnswers = [...answers];
-    updatedAnswers[index] = newAnswer;
+    updatedAnswers[questionIndex] = answerValue;
     setAnswers(updatedAnswers);
   };
 
-  // Xử lý upload file cho Speaking
-  const handleFileUpload = (index, file) => {
-    const updatedFiles = [...uploadedFiles];
-    updatedFiles[index] = file;
-    setUploadedFiles(updatedFiles);
+  const handleSubmit = () => {
+    console.log("Submitted Answers:", answers);
+    alert("Quiz submitted! Check console for answers.");
   };
 
-  const handleSubmit = () => {
-    console.log("Selected Answers: ", selectedAnswers);
-    console.log("Written Answers: ", answers);
-    console.log("Uploaded Files: ", uploadedFiles);
-    alert("Quiz submitted! Check console for answers.");
+  // Render câu hỏi dựa trên loại quiz
+  const renderQuestions = () => {
+    return relatedQuestions.map((question, index) => (
+      <div key={question.id_question} className="quiz-question-block">
+        {currentQuiz?.type_quiz.toLowerCase() === "reading" && (
+          <ReadingQuestion
+            question={question}
+            selectedOption={answers[index]}
+            onOptionChange={(value) => handleAnswerChange(index, value)}
+          />
+        )}
+        {currentQuiz?.type_quiz.toLowerCase() === "listening" && (
+          <ListeningQuestion
+            question={question}
+            selectedOption={answers[index]}
+            onOptionChange={(value) => handleAnswerChange(index, value)}
+          />
+        )}
+        {currentQuiz?.type_quiz.toLowerCase() === "writing" && (
+          <WritingQuestion
+            question={question}
+            answer={answers[index]}
+            onAnswerChange={(value) => handleAnswerChange(index, value)}
+          />
+        )}
+        {currentQuiz?.type_quiz.toLowerCase() === "speaking" && (
+          <SpeakingQuestion
+            question={question}
+            onFileUpload={(file) => handleAnswerChange(index, file)}
+          />
+        )}
+      </div>
+    ));
   };
 
   return (
     <div className="quiz-page-container">
       <div className="quiz-header">
-        <h1 className="quiz-title">{quiz.name_quiz}</h1>
+        <h1 className="quiz-title">{currentQuiz?.name_quiz}</h1>
       </div>
-
-      {/* Hiển thị Reading Questions */}
-      {readingQuestions.map((question, index) => (
-        <div key={index} className="quiz-question-block">
-          <ReadingQuestion
-            questionId={question.id_question}
-            question={question.question}
-            options={question.options}
-            selectedOption={selectedAnswers[index]}
-            onOptionChange={(option) => handleOptionChange(index, option)}
-          />
-        </div>
-      ))}
-
-      {/* Hiển thị Listening Questions */}
-      {listeningQuestions.map((question, index) => (
-        <div key={index} className="quiz-question-block">
-          <ListeningQuestion
-            questionId={question.id_question}
-            question={question.question}
-            audioSrc={question.link_mp3}
-            options={question.options}
-            selectedOption={selectedAnswers[index]}
-            onOptionChange={(option) => handleOptionChange(index, option)}
-          />
-        </div>
-      ))}
-
-      {/* Hiển thị Writing Questions */}
-      {writingQuestions.map((question, index) => (
-        <div key={index} className="quiz-question-block">
-          <WritingQuestion
-            questionId={question.id_question}
-            question={question.question}
-            imageSrc={question.link_image}
-            answer={answers[index]}
-            onAnswerChange={(newAnswer) => handleAnswerChange(index, newAnswer)}
-          />
-        </div>
-      ))}
-
-      {/* Hiển thị Speaking Questions */}
-      {speakingQuestions.map((question, index) => (
-        <div key={index} className="quiz-question-block">
-          <SpeakingQuestion
-            questionId={question.id_question}
-            question={question.question}
-            onFileUpload={(file) => handleFileUpload(index, file)}
-          />
-        </div>
-      ))}
-
+      <div className="quiz-content">{renderQuestions()}</div>
       <button className="quiz-submit-button" onClick={handleSubmit}>
         Submit Quiz
       </button>

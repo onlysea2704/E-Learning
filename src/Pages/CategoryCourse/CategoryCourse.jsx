@@ -5,13 +5,13 @@ import Footer from "../../Components/Footer/Footer";
 import { StudentContext } from "../../Context/Context";
 
 const filters = [
-    "listening",
-    "writing",
-    "speaking",
-    "reading",
-    "listening + reading",
-    "speaking + writing",
-    "all skill",
+    "Listening",
+    "Writing",
+    "Speaking",
+    "Reading",
+    "Listening + Reading",
+    "Speaking + Writing",
+    "All Skill",
 ];
 
 const CategoryCourse = ({ isPurchase }) => {
@@ -27,7 +27,7 @@ const CategoryCourse = ({ isPurchase }) => {
         // Lấy ra khóa học mà Student 1 chưa mua
     );
 
-    const [selectedFilter, setSelectedFilter] = useState("all skill");
+    const [selectedFilter, setSelectedFilter] = useState("All Skill");
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
 
@@ -37,7 +37,7 @@ const CategoryCourse = ({ isPurchase }) => {
     };
 
     const filteredCourses = availableCourses.filter((course) =>
-        (selectedFilter === "all skill" && course.id_course !== 0) ? true : course.type_course === selectedFilter
+        (selectedFilter === "All Skill" && course.id_course !== 0) ? true : course.type_course === selectedFilter
     );
 
     // Pagination logic
@@ -58,7 +58,7 @@ const CategoryCourse = ({ isPurchase }) => {
     return (
         <>
             <div className="courses-page">
-                <h1 className="page-title">Danh sách các khóa học</h1>
+                <h1 className="page-title">{isPurchase ? "Khóa Học Của Tôi": "Khám Phá Các Khóa Học Mới !!!"}</h1>
                 <div className="page-content">
                     <div className="filter-section">
                         {filters.map((filter) => (

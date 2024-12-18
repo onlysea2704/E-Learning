@@ -66,7 +66,7 @@
 
 
 .explore-button {
-    background: linear-gradient(90deg, #5dade2, #85c1e9);
+    background: #2b77a9;
     width: 100%;
     margin-top: 10px;
     color: white;
@@ -86,5 +86,5 @@
 }
 
 .explore-button:hover {
-    background: #32cd32;
+    background: #300694;
 }

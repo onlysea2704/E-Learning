@@ -4,8 +4,8 @@ import "./SpeakingQuestion.css";
 const SpeakingQuestion = ({ question, onFileUpload }) => {
   const [audioURL, setAudioURL] = useState(null);
   const [fileName, setFileName] = useState(null);
-
   const handleFileChange = (event) => {
+    console.log(1234567899);
     const file = event.target.files[0];
     if (file) {
       setFileName(file.name);
@@ -16,13 +16,14 @@ const SpeakingQuestion = ({ question, onFileUpload }) => {
 
   return (
     <div className="speaking-question-card">
-      <h2 className="speaking-question-title">{question}</h2>
+      <h2 className="speaking-question-title">{question.question}</h2>
       <div className="speaking-upload-container">
-        <label htmlFor={`file-upload-${question}`} className="upload-button">
+        <label htmlFor={`file-upload-${question.id_question}`} className="upload-button">
           {fileName ? "Replace File" : "Upload your MP3 answer"}
         </label>
         <input
-          name={`${question}`}
+          id={`file-upload-${question.id_question}`}
+          name={`${question.id_question}`}
           type="file"
           accept="audio/mp3"
           className="file-input-hidden"

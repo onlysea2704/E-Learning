@@ -2,14 +2,8 @@ import React from "react";
 import "./Card.css";
 import { Link } from "react-router-dom";
 
-const padName = (name, length) => {
-  if (name.length < length) {
-    return name + '\u00A0'.repeat(6);
-  }
-  return name;
-};
-
 const CourseCard = ({ course, type }) => {
+  console.log(course);
   return (
     <div className="course-card">
       <img

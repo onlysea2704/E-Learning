@@ -1,17 +1,17 @@
 import React from "react";
 import "./WritingQuestion.css";
 
-const WritingQuestion = ({ question, imageSrc, answer, onAnswerChange, questionId }) => {
+const WritingQuestion = ({ question, answer, onAnswerChange }) => {
   return (
     <div className="writing-question-container">
-      <p className="writing-question">{question}</p>
-      {imageSrc && (
+      <p className="writing-question">{question.question}</p>
+      {question.link_image && (
         <div className="writing-question-image">
-          <img src={imageSrc} alt="Question Illustration" />
+          <img src={question.link_image} alt="Question Illustration" />
         </div>
       )}
       <textarea
-        name={`${questionId}`}
+        name={`${question.id_question}`}
         className="writing-textarea"
         placeholder="Write your answer here..."
         value={answer}

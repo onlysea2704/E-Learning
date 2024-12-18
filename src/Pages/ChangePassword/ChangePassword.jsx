@@ -30,7 +30,7 @@ const ChangePassword = () => {
                             type="password"
                             value={currentPassword}
                             onChange={(e) => setCurrentPassword(e.target.value)}
-                            placeholder="Enter current password"
+                            placeholder="Current password"
                             required
                         />
                     </div>
@@ -40,7 +40,7 @@ const ChangePassword = () => {
                             type="password"
                             value={newPassword}
                             onChange={(e) => setNewPassword(e.target.value)}
-                            placeholder="Enter new password"
+                            placeholder="New password"
                             required
                         />
                     </div>
@@ -50,7 +50,7 @@ const ChangePassword = () => {
                             type="password"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
-                            placeholder="Confirm new password"
+                            placeholder="Confirm"
                             required
                         />
                     </div>

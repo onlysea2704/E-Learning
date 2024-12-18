@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Comments.css";
+import { StudentContext } from "../../Context/Context";
+import { useParams } from "react-router-dom";
 
 const Comments = () => {
+    const {id_course} = useParams();
+    // const {comments,students} = useContext(StudentContext);
 
     const [comments, setComments] = useState([
         { id: 1, author: "Học viên A", text: "Khóa học rất bổ ích!" },
