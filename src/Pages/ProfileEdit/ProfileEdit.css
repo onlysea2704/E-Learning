@@ -67,25 +67,26 @@
     margin-bottom: 20px;
   }
   
-  .form-group {
+  .form-group-edit {
     margin-bottom: 15px;
   }
   
-  .form-group label {
+  .form-group-edit label {
     display: block;
     font-weight: bold;
     color: #0056a3;
     margin-bottom: 5px;
   }
   
-  .form-group input,
-  .form-group select {
+  .form-group-edit input,
+  .form-group-edit select {
     width: 100%;
     padding: 10px;
     border: 1px solid #b8daff;
     border-radius: 6px;
     background-color: #ffffff;
     font-size: 14px;
+    box-sizing: border-box;
   }
   
   /* Submit Button */

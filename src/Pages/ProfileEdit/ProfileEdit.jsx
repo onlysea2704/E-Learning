@@ -74,7 +74,7 @@ const ProfileEdit = () => {
                 <div className="form-section">
                     <h2>Edit Profile</h2>
                     <form onSubmit={handleSubmit}>
-                        <div className="form-group">
+                        <div className="form-group-edit">
                             <label htmlFor="name">Name:</label>
                             <input
                                 type="text"
@@ -85,7 +85,7 @@ const ProfileEdit = () => {
                                 placeholder="Enter your name"
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="form-group-edit">
                             <label htmlFor="age">Age:</label>
                             <input
                                 type="number"
@@ -96,7 +96,7 @@ const ProfileEdit = () => {
                                 placeholder="Enter your age"
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="form-group-edit">
                             <label htmlFor="gender">Gender:</label>
                             <select
                                 id="gender"
@@ -109,7 +109,7 @@ const ProfileEdit = () => {
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group-edit">
                             <label htmlFor="phone">Phone:</label>
                             <input
                                 type="tel"
@@ -120,7 +120,7 @@ const ProfileEdit = () => {
                                 placeholder="Enter your phone number"
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="form-group-edit">
                             <label htmlFor="email">Email:</label>
                             <input
                                 type="email"

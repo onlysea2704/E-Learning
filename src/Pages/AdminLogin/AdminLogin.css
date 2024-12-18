@@ -1,25 +1,24 @@
-
-    /* Nhãn trước các ô nhập */
-  .input-label-login {
-    display: block; /* Đảm bảo nhãn nằm trên một dòng riêng */
-    margin-bottom: 10px; /* Tạo khoảng cách giữa nhãn và ô nhập */
-    font-size: 14px; /* Kích thước chữ nhỏ hơn */
-    font-weight: normal; /* Không quá đậm */
-    color: #666; /* Màu nhạt hơn */
-    text-align: left; /* Canh trái */
+/* Nhãn trước các ô nhập */
+.input-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #666;
+    text-align: left;
   }
-
+  
   /* Căn chỉnh ô nhập */
   .login-input {
-    width: 100%; /* Đảm bảo ô nhập giãn hết chiều rộng */
-    padding: 10px 15px; /* Tạo khoảng cách nội dung */
-    margin-bottom: 20px; /* Cách xa nhãn phía trên */
-    border: 1px solid #ccc; /* Viền nhẹ */
-    border-radius: 10px; /* Bo góc */
-    font-size: 16px; /* Kích thước chữ lớn hơn nhãn */
-    box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
   }
-
+  
   /* Container chứa form */
   .login-container {
     width: 100%;
@@ -47,26 +46,13 @@
     color: #333;
   }
   
-  /* Các ô input */
-  .login-input {
-    width: 100%;
-    padding: 10px 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  
   /* Nút submit */
-  .submit-button-login {
+  .submit-button {
     width: 100%;
     padding: 10px 15px;
-    margin-top: 10px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     background: linear-gradient(135deg, #4facfe, #00f2fe);
-    /* background: linear-gradient(135deg, #0077b6, #00b4d8); */
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -94,5 +80,13 @@
   
   .register-text a:hover {
     text-decoration: underline;
+  }
+  
+  /* Thông báo lỗi */
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: left;
   }
   

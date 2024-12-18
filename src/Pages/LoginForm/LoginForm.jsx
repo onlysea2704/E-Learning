@@ -10,19 +10,19 @@ const LoginForm = () => {
       <div className="login-form">
         <h2>Đăng nhập</h2>
         <form>
-          <label className="input-label">Tên Đăng Nhập</label>
+          <label className="input-label-login">Tên Đăng Nhập</label>
           <input 
             type="text" 
             placeholder="Nhập tên đăng nhập" 
             className="login-input" 
           />
-          <label className="input-label">Mật khẩu</label>
+          <label className="input-label-login">Mật khẩu</label>
           <input 
             type="password" 
             placeholder="Nhập mật khẩu" 
             className="login-input" 
           />
-          <button type="submit" className="submit-button">Đăng nhập</button>
+          <button type="submit" className="submit-button-login">Đăng nhập</button>
         </form>
         <p className="register-text">
           Chưa có tài khoản? <Link to="/register">Đăng Ký</Link>

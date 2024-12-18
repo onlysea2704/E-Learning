@@ -24,7 +24,7 @@ const ChangePassword = () => {
                 <form className="change-password-form" onSubmit={handleSubmit}>
                     <h2>Thay đổi mật khẩu</h2>
                     {message && <p className={`message ${message.includes("successfully") ? "success" : "error"}`}>{message}</p>}
-                    <div className="form-group">
+                    <div className="form-group-change-pass">
                         <label>Mật khẩu hiện tại</label>
                         <input
                             type="password"
@@ -34,7 +34,7 @@ const ChangePassword = () => {
                             required
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-change-pass">
                         <label>Mật khẩu mới</label>
                         <input
                             type="password"
@@ -44,7 +44,7 @@ const ChangePassword = () => {
                             required
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-change-pass">
                         <label>Xác nhận mật khẩu mới</label>
                         <input
                             type="password"
