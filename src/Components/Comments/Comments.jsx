@@ -8,11 +8,11 @@ const Comments = () => {
     // const {comments,students} = useContext(StudentContext);
 
     const [comments, setComments] = useState([
-        { id: 1, author: "Học viên A", text: "Khóa học rất bổ ích!" },
-        { id: 2, author: "Học viên B", text: "Nội dung chi tiết và dễ hiểu." },
-        { id: 3, author: "Học viên C", text: "Giảng viên dạy rất dễ hiểu, tôi rất thích!" },
-        { id: 4, author: "Học viên D", text: "Khóa học cung cấp đầy đủ kiến thức cơ bản." },
-        { id: 5, author: "Học viên E", text: "Rất đáng tiền, cảm ơn giảng viên!" },
+        { id: 1, author: "Mai Khánh Linh", text: "Khóa học rất bổ ích!" },
+        { id: 2, author: "Nguyễn Hoàng Bảo", text: "Nội dung chi tiết và dễ hiểu." },
+        { id: 3, author: "Phạm Quỳnh Anh", text: "Giảng viên dạy rất dễ hiểu, tôi rất thích!" },
+        { id: 4, author: "Trần Gia Huy", text: "Khóa học cung cấp đầy đủ kiến thức cơ bản." },
+        { id: 5, author: "Lê Thanh Phong", text: "Rất đáng tiền, cảm ơn giảng viên!" },
     ]);
 
     const [newComment, setNewComment] = useState("");

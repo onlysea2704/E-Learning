@@ -134,30 +134,30 @@ const progress = [
 
 // Bảng Lesson
 const lessons = [
-    { id_lesson: 1, name_lesson: "HTML Basics", description: "Introduction to HTML", link_material: "https://www.youtube.com/embed/Wn_eBrIDUuc", order_lesson: 1, id_course: 1, type_lesson: "video lesson" },
-    { id_lesson: 2, name_lesson: "CSS Styling", description: "Learn CSS styles", link_material: "https://www.youtube.com/embed/d0wV9EC3t14", order_lesson: 2, id_course: 1, type_lesson: "video lesson" },
-    { id_lesson: 3, name_lesson: "JavaScript Intro", description: "Basics of JavaScript", link_material: "https://www.youtube.com/embed/sCiG6rlk2Bc", order_lesson: 3, id_course: 1, type_lesson: "quiz" },
-    { id_lesson: 4, name_lesson: "React Components", description: "Understanding components", link_material: "https://www.youtube.com/embed/y2wgl5mH7zc", order_lesson: 4, id_course: 1, type_lesson: "video lesson" },
-    { id_lesson: 5, name_lesson: "Python Basics", description: "Introduction to Python", link_material: "https://www.youtube.com/embed/Wn_eBrIDUuc", order_lesson: 5, id_course: 1, type_lesson: "quiz" },
-    { id_lesson: 6, name_lesson: "Data Analysis", description: "Learn data analysis", link_material: "https://www.youtube.com/embed/d0wV9EC3t14", order_lesson: 6, id_course: 1, type_lesson: "video lesson" },
-    { id_lesson: 7, name_lesson: "ML Foundations", description: "Introduction to ML", link_material: "https://www.youtube.com/embed/sCiG6rlk2Bc", order_lesson: 7, id_course: 1, type_lesson: "video lesson" },
-    { id_lesson: 8, name_lesson: "SQL Basics", description: "Basics of SQL", link_material: "https://www.youtube.com/embed/y2wgl5mH7zc", order_lesson: 8, id_course: 1, type_lesson: "quiz" },
-    { id_lesson: 9, name_lesson: "UI Design", description: "Learn UI design", link_material: "https://www.youtube.com/embed/Wn_eBrIDUuc", order_lesson: 9, id_course: 1, type_lesson: "video lesson" },
-    { id_lesson: 10, name_lesson: "App Development", description: "Intro to app dev", link_material: "https://www.youtube.com/embed/d0wV9EC3t14", order_lesson: 10, id_course: 1, type_lesson: "quiz" },
-    { id_lesson: 16, name_lesson: "ML Foundations", description: "Introduction to ML", link_material: "https://www.youtube.com/embed/sCiG6rlk2Bc", order_lesson: 7, id_course: 1, type_lesson: "quiz" },
-    { id_lesson: 17, name_lesson: "SQL Basics", description: "Basics of SQL", link_material: "https://www.youtube.com/embed/y2wgl5mH7zc", order_lesson: 8, id_course: 1, type_lesson: "quiz" },
-    { id_lesson: 18, name_lesson: "UI Design", description: "Learn UI design", link_material: "https://www.youtube.com/embed/Wn_eBrIDUuc", order_lesson: 9, id_course: 1, type_lesson: "quiz" },
-    { id_lesson: 19, name_lesson: "App Development", description: "Intro to app dev", link_material: "https://www.youtube.com/embed/d0wV9EC3t14", order_lesson: 10, id_course: 1, type_lesson: "quiz" },
+    { id_lesson: 1, name_lesson: "Basic English Grammar Rules", description: "Introduction to basic grammar", link_material: "https://www.youtube.com/embed/Wn_eBrIDUuc", order_lesson: 1, id_course: 1, type_lesson: "video lesson" },
+    { id_lesson: 2, name_lesson: "Common English Phrases", description: "Learn frequently used phrases", link_material: "https://www.youtube.com/embed/d0wV9EC3t14", order_lesson: 2, id_course: 1, type_lesson: "video lesson" },
+    { id_lesson: 3, name_lesson: "Listening Practice for Beginners", description: "Practice listening skills", link_material: "https://www.youtube.com/embed/sCiG6rlk2Bc", order_lesson: 3, id_course: 1, type_lesson: "quiz" },
+    { id_lesson: 4, name_lesson: "Speaking Everyday English", description: "Build confidence in speaking", link_material: "https://www.youtube.com/embed/y2wgl5mH7zc", order_lesson: 4, id_course: 1, type_lesson: "video lesson" },
+    { id_lesson: 5, name_lesson: "Expand Your English Vocabulary", description: "Grow your vocabulary", link_material: "https://www.youtube.com/embed/Wn_eBrIDUuc", order_lesson: 5, id_course: 1, type_lesson: "quiz" },
+    { id_lesson: 6, name_lesson: "Techniques for Reading English", description: "Learn effective reading methods", link_material: "https://www.youtube.com/embed/d0wV9EC3t14", order_lesson: 6, id_course: 1, type_lesson: "video lesson" },
+    { id_lesson: 7, name_lesson: "Basic English Writing Skills", description: "Master essential writing skills", link_material: "https://www.youtube.com/embed/sCiG6rlk2Bc", order_lesson: 7, id_course: 1, type_lesson: "video lesson" },
+    { id_lesson: 8, name_lesson: "IELTS Listening Preparation", description: "Prepare for IELTS Listening", link_material: "https://www.youtube.com/embed/y2wgl5mH7zc", order_lesson: 8, id_course: 1, type_lesson: "quiz" },
+    { id_lesson: 9, name_lesson: "Improve Speaking for TOEFL", description: "Enhance TOEFL speaking skills", link_material: "https://www.youtube.com/embed/Wn_eBrIDUuc", order_lesson: 9, id_course: 1, type_lesson: "video lesson" },
+    { id_lesson: 10, name_lesson: "English for Business Communication", description: "Learn business English", link_material: "https://www.youtube.com/embed/d0wV9EC3t14", order_lesson: 10, id_course: 1, type_lesson: "quiz" },
 
-    
+    { id_lesson: 16, name_lesson: "Foundations of Reading", description: "Develop basic reading comprehension skills", link_material: "https://www.youtube.com/embed/sCiG6rlk2Bc", order_lesson: 7, id_course: 1, type_lesson: "quiz" },
+    { id_lesson: 17, name_lesson: "Listening Practice Basics", description: "Improve your basic listening ability", link_material: "https://www.youtube.com/embed/y2wgl5mH7zc", order_lesson: 8, id_course: 1, type_lesson: "quiz" },
+    { id_lesson: 18, name_lesson: "Speaking Essentials", description: "Learn key techniques to speak fluently", link_material: "https://www.youtube.com/embed/Wn_eBrIDUuc", order_lesson: 9, id_course: 1, type_lesson: "quiz" },
+    { id_lesson: 19, name_lesson: "Writing Fundamentals", description: "Master basic writing structures", link_material: "https://www.youtube.com/embed/d0wV9EC3t14", order_lesson: 10, id_course: 1, type_lesson: "quiz" },
 
-    // Lesson for Entry Test
-    { id_lesson: 11, name_lesson: "Reading Test", description: "Test Reading Skill", link_material: "", order_lesson: 1, id_course: 0, type_lesson: "quiz" },
-    { id_lesson: 12, name_lesson: "Listening Test", description: "Test Listening Skill", link_material: "", order_lesson: 2, id_course: 0, type_lesson: "quiz" },
-    { id_lesson: 13, name_lesson: "Writing Test", description: "Test Writing Skill", link_material: "", order_lesson: 3, id_course: 0, type_lesson: "quiz" },
-    { id_lesson: 14, name_lesson: "Speaking Test", description: "Test Speaking Skill", link_material: "", order_lesson: 4, id_course: 0, type_lesson: "quiz" },
-    { id_lesson: 15, name_lesson: "Tutorial Choose Coure", description: "Tutorial Choose Coure", link_material: "https://www.youtube.com/embed/zhpcgpqWc1Q", order_lesson: 4, id_course: 0, type_lesson: "video lesson" },
+    // Lesson for Entry Test (description updated for the last 5 lessons)
+    { id_lesson: 11, name_lesson: "Reading Skill Assessment", description: "Evaluate your reading skills", link_material: "", order_lesson: 1, id_course: 0, type_lesson: "quiz" },
+    { id_lesson: 12, name_lesson: "Listening Skill Test", description: "Assess your listening ability", link_material: "", order_lesson: 2, id_course: 0, type_lesson: "quiz" },
+    { id_lesson: 13, name_lesson: "Writing Proficiency Test", description: "Test your writing skills", link_material: "", order_lesson: 3, id_course: 0, type_lesson: "quiz" },
+    { id_lesson: 14, name_lesson: "Speaking Fluency Assessment", description: "Check your speaking fluency", link_material: "", order_lesson: 4, id_course: 0, type_lesson: "quiz" },
+    { id_lesson: 15, name_lesson: "Guide to Choosing a Course", description: "How to select a course", link_material: "https://www.youtube.com/embed/zhpcgpqWc1Q", order_lesson: 4, id_course: 0, type_lesson: "video lesson" },
 ];
+
 
 // Bảng Quiz
 const quizzes = [
